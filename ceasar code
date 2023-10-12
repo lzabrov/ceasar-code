@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1 - Кодировать\n2 - Декодировать\nВведите номер нужного варианта");
+        int choise = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Введите слово русскими ЗАГЛАВНЫМИ буквами");
+        String word = scanner.nextLine();
+        System.out.println("Введите ключ -32 < key < 32");
+        int key = scanner.nextInt();
+        if (choise == 1) codee(word, key);
+        else decode(word, key);
+
+    }
+
+    public static void codee(String word, int key) {
+        int tempL = 0;
+        int brawlstars = 0;
+        for (int i = 0; i < word.length(); i++) {
+            brawlstars = (int) (word.charAt(i));
+            if (brawlstars != 32) {
+                brawlstars = brawlstars + key;
+                if (brawlstars > 1071) {
+                    tempL = brawlstars - 1071;
+                    brawlstars = 1040 + tempL - 1;
+                }
+                if (brawlstars < 1040) {
+                    tempL = 1040 - brawlstars;
+                    brawlstars = 1071 - tempL + 1;
+                }
+            }
+            System.out.print((char) brawlstars);
+        }
+    }
+
+    public static void decode(String word, int key) {
+        key = -key; //зачем делать кучу одинакового кода, если можно просто инверсировать ключ
+        codee(word, key);
+    }
+}
