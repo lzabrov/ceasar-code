@@ -6,7 +6,7 @@ public class Main {
         System.out.println("1 - Кодировать\n2 - Декодировать\nВведите номер нужного варианта");
         int choise = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Введите слово русскими ЗАГЛАВНЫМИ буквами");
+        System.out.println("Введите слово или фразу русскими ЗАГЛАВНЫМИ буквами");
         String word = scanner.nextLine();
         System.out.println("Введите ключ -32 < key < 32");
         int key = scanner.nextInt();
